@@ -1,0 +1,25 @@
+
+body{
+  margin: 0;
+}
+div{
+  height: 100px;
+  width: 100px;
+  margin: 0;
+  position: absolute;
+}
+/********************************Class Seclector**********************************/
+
+.top_container{
+  background-color: red;
+  top: 200px;
+  left: 200px;
+}
+.middle_container{
+  background-color: blue;
+  top: 100px;
+  left: 100px;
+}
+.bottom_container{
+  background-color: yellow;
+}
