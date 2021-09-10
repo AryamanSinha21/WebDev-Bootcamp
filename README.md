@@ -12,3 +12,6 @@ ejs, and react.js files please follow the below given instructions:
   eg: for Keeper APP get inside the Keeper APP folder using CLI
 4> use the following command: $ npm install
 5> this will install all the required node_modules
+
+
+Thank You
