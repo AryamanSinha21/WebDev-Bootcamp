@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 
-mongoose.connect("mongodb://localhost:27012/fruitsDB",{ useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/fruitsDB",{ useUnifiedTopology: true, useNewUrlParser: true});
 
 const connection = mongoose.connection;
 
