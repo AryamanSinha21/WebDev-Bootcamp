@@ -38,11 +38,11 @@ app.post("/", function(req, res) {
   // compressing out json objec to string
   const jsonData = JSON.stringify(data);
 
-  const url = "https://us5.api.mailchimp.com/3.0/lists/92ee467264";
+  const url = "https://us5.api.mailchimp.com/3.0/lists/your-audiance-id";
 
   const options = {
     method: "POST",
-    auth: "AryamanSinha:e193b1a23b3cbc5ac31819dc07f94ff6-us5"
+    auth: "AryamanSinha:our api key"
   };
 
 
@@ -80,5 +80,4 @@ app.listen(process.env.PORT ||3000, function() {
 
 
 
-// const apikey = "e193b1a23b3cbc5ac31819dc07f94ff6-us5";
-// Audiance id = 92ee467264
+
