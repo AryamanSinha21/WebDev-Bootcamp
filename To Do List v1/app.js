@@ -1,8 +1,8 @@
-//jhshist esversion:6
+//jshint esversion:6
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const date = require(__dirname + "/date.js")
+const date = require(__dirname + "/date.js");
 
 const app = express();
 
