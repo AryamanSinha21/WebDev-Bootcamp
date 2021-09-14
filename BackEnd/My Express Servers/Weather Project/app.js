@@ -18,7 +18,7 @@ app.get("/",function(req,res){
 app.post("/",function(req,res){
   // use https to get the info from url or access data on url
   const query = req.body.cityName; // to take the input with help of body-parser
-  const apikey = "3d941c66a5c12ce0ed013e35c8539b22";
+  const apikey = "your api key";
   const unit = "metric";
   //creating custom url based on client data provided
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" +query + "&appid=" + apikey + "&units=" + unit;
