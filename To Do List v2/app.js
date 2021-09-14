@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-//adding the database in the original to do list using mongoose
+// Adding the database in the original to do list using mongoose
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -37,12 +37,13 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3];
 
-//schema for list items
+// Schema for list collection
 const listSchema = {
   name: String,
   items: [itemsSchema]
 };
 
+// A collection to keep the name of different lists
 const List = mongoose.model("List", listSchema);
 
 
@@ -55,7 +56,7 @@ app.get("/", function(req, res) {
         if (err) {
           console.log(err);
         } else {
-          console.log("Successfully savevd default items to DB.");
+          console.log("Successfully saved default items to DB.");
         }
       });
       res.redirect("/");
@@ -68,11 +69,11 @@ app.get("/", function(req, res) {
 
 app.get("/:customListName", function(req, res){
   const customListName = _.capitalize(req.params.customListName);
-
+  // To check if the list exists
   List.findOne({name: customListName}, function(err, foundList){
     if (!err){
       if (!foundList){
-        //Create a new list
+        // Create a new list
         const list = new List({
           name: customListName,
           items: defaultItems
@@ -80,7 +81,7 @@ app.get("/:customListName", function(req, res){
         list.save();
         res.redirect("/" + customListName);
       } else {
-        //Show an existing list
+        // Show an existing list
 
         res.render("list", {listTitle: foundList.name, newListItems: foundList.items});
       }
@@ -91,7 +92,7 @@ app.get("/:customListName", function(req, res){
 
 });
 
-// to add new i tem to the list and data base
+// To add new i tem to the list and data base
 
 app.post("/", function(req, res){
 
@@ -115,7 +116,7 @@ app.post("/", function(req, res){
 });
 
 
-// to remove checked items from the data base
+// To remove checked items from the data base
 app.post("/delete", function(req, res){
   const checkedItemId = req.body.checkbox;
   const listName = req.body.listName;
@@ -128,6 +129,7 @@ app.post("/delete", function(req, res){
       }
     });
   } else {
+    // $pull operator removes from existing array all item with specified value
     List.findOneAndUpdate({name: listName}, {$pull: {items: {_id: checkedItemId}}}, function(err, foundList){
       if (!err){
         res.redirect("/" + listName);
