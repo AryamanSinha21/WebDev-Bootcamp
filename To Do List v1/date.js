@@ -1,3 +1,4 @@
+//jshint esversion:6
 // creating my own module like express
 
 // we can create our own modules with specific function
