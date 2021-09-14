@@ -15,9 +15,9 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-// as mongo DB was not working on my system so I used the cloud database of monga atlas
 
-const url = "ongodb://localhost:27012/blogDB";
+
+const url = "mongodb://localhost:27017/blogDB";
 
 
 mongoose.connect(url, {useNewUrlParser: true});
